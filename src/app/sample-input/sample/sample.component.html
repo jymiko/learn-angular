@@ -1,0 +1,8 @@
+<p>sample works!</p>
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <input type="text" name="email" formControlName="email">
+  <div *ngIf="email?.errors">email is required.</div>
+  <input type="password" name="password" formControlName="password">
+  <div *ngIf="password?.errors">password is required.</div>
+  <button type="submit">Submit</button>
+</form>

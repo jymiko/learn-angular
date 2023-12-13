@@ -1,0 +1,43 @@
+
+  <div>
+    <form [formGroup]="form" (submit)="submit()">
+      <div>User Profile</div>
+      <div>
+        <label for="name">Name</label>
+        <input type="text" formControlName="name">
+      </div>
+      <div>
+        <label for="organization">Organization</label>
+        <input type="text" formControlName="organization">
+      </div>
+      <div>Contact Information</div>
+      <div formArrayName="contacts">
+        <div *ngFor="let contact of contactFormGroup.controls; let i = index">
+          <div [formGroupName]="i">
+            <div>
+              <label>Type of Contact</label>
+              <select (change)="changedFieldType(i)" formControlName="type" type="text">
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+              </select>
+            </div>
+            <div>
+              <label for="organization">Contact Label</label>
+              <input type="text" formControlName="name">
+            </div>
+            <div>
+              <label for="organization">Email/Phone No.</label>
+              <input type="text" formControlName="value">
+            </div>
+            <div>
+              <button type="button" (click)="removeContact(i)">remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button type="button" (click)="addContact()">add contact</button>
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  </div>
