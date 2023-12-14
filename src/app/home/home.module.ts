@@ -3,6 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button'
+import { HomeDirective } from '../../directive/home.directive';
 
 
 
@@ -12,7 +13,8 @@ import { MatButtonModule } from '@angular/material/button'
     CommonModule,
     NgOptimizedImage,
     MatSlideToggleModule,
-    MatButtonModule
+    MatButtonModule,
+    HomeDirective
   ],
   exports: [HomeComponent, MatSlideToggleModule, MatButtonModule]
 })

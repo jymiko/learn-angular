@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SampleInputRoutingModule } from './sample-input-routing.module';
 import { SampleComponent } from './sample/sample.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CounterModule } from '../counter/counter.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SampleInputRoutingModule
+    SampleInputRoutingModule,
+    CounterModule
   ],
   exports: [SampleComponent]
 })

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 
 @Component({
@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   attackUrl = 'Template <script>alert("0wned")</script> <b>Syntax</b>';
+  @ViewChild('inputText') input!: ElementRef;
+  
+  buttonAlert(){
+    let input = this.input.nativeElement as HTMLInputElement;
+
+    alert(input.value);
+  }
 }

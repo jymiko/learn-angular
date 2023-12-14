@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CounterComponent } from '../../counter/counter.component';
 
 @Component({
   selector: 'app-sample',
   templateUrl: './sample.component.html',
   styleUrl: './sample.component.css'
 })
-export class SampleComponent {
+export class SampleComponent implements AfterViewInit {
+  @ViewChild(CounterComponent, {static: true}) child?: CounterComponent;
+  @ViewChild('button', {static: true}) buttonRef ?: ElementRef<HTMLButtonElement>;
+
   hero = {email: 'test@email.com'}
 
   public form:FormGroup
@@ -29,5 +33,20 @@ export class SampleComponent {
   submitForm(){
     console.log(this.form.controls['email'].errors)
     console.log(this.form.value)
+  }
+
+  addValue(){
+    this.child?.increment()
+  }
+
+  removeValue(){
+    this.child?.decrement()
+  }
+
+  ngAfterViewInit(): void {
+    if(this.buttonRef?.nativeElement){
+      // change button text
+      this.buttonRef.nativeElement.innerHTML = 'changed button'
+    }
   }
 }

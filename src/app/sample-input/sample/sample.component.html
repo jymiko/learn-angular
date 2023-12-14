@@ -6,3 +6,10 @@
   <div *ngIf="password?.errors">password is required.</div>
   <button type="submit">Submit</button>
 </form>
+
+<div>
+  <h1>Counter</h1>
+  <button (click)="addValue()" #button>Increment</button>
+  <app-counter></app-counter>
+  <button (click)="removeValue()">Decrement</button>
+</div>
